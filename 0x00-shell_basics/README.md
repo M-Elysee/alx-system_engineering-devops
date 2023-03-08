@@ -4,3 +4,4 @@
 4:the script display the current directory contents including the hidden files using the long format
 5:the script display the current directory  in long format,with hidden files and with user and group ids didplayed manualy
 6:The script creates a directory inside tmp directory
+7:The script moves the file betty to a directory in tmp
