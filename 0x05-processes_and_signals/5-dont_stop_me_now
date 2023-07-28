@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# a script that kill an infinite loop
+pid=$(pgrep -f "4-to_infinity_and_beyond")
+if [ -n "$pid" ]
+then
+    kill "$pid"
+fi

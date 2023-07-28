@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#a bash script that display a name and pid of a process with bash in it's name
+
+while IFS= read -r pid
+do
+    process_name=$(ps -p "$pid" -o comm=)
+    echo "$pid $process_name"
+done < <(pgrep -f bash)
