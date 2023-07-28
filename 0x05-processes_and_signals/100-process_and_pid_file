@@ -6,7 +6,7 @@
 handle_sigterm()
 {
     rm /var/run/myscript.pid
-    exit 0
+    exit
 }
 
 echo "$$" > /var/run/myscript.pid
@@ -16,6 +16,6 @@ do
     echo "To infinity and beyond"
     trap 'echo "I hate the kill command"' SIGTERM
     trap 'echo "Y U no love me?!"' SIGINT
-    trap "handle_sigterm" SIGTERM || SIGQUIT
+    trap 'handle_sigterm' SIGTERM || SIGQUIT
     sleep 2
 done
