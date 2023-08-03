@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# a Bash script that configures an Ubuntu server 
+# +by modifing some sites ip address
+cp /etc/hosts ~/hostfilecp
+sed -i 's/127\.0\.0\.1/127\.0\.0\.2' ~/hostfilecp
+echo >> ~/hostfilecp
+echo -e '8.8.8.8\tfacebook.com' >> ~/hostfilecp
+cat ~/hostfilecp > /etc/hosts
+rm ~/hostfilecp
