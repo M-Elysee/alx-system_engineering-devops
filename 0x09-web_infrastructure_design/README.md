@@ -1,4 +1,5 @@
 Solutions for "0x09. Web infrastructure design" challenge
+(a team project by Me(Mutaganda Elysee) and Willington Mhalanga)
 
 0. Simple web stack
 
