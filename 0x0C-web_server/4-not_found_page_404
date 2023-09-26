@@ -10,7 +10,10 @@ sudo mv index.nginx-debian.html /var/www/html
 echo "Ceci n'est pas une page" > 404_page.html
 sudo mv 404_page.html /var/www/html
 
-echo "server {
+echo "
+   #
+   
+   server {
    listen 80 default_server;
    listen [::]:80 default_server;
    
