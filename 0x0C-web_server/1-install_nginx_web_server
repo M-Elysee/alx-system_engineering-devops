@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# a bash script that install nginx in a server
+# setting the server up that it returns a page containing "hello world!"
+# When querying Nginx at its root with a GET request using curl
+
+sudo apt-get update -y -qq
+sudo apt-get install nginx -y -qq
+
+# starting nginx service with some configurations
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+sudo bash -c 'echo -e "Hello World!" > /var/www/html/index.nginx-debian.html'
+
+# Restarting nginx
+sudo service nginx restart 
