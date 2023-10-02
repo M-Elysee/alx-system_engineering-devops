@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# a script that install and configure a loadbalancer
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo chown  $USER:$USER /etc/haproxy/haproxy.cfg
+
+echo "
+frontend mutaganda.tech
+    bind *:80
+    mode http
+    default_backend mutaganda.tech
+backend mutaganda.tech
+    balance roundrobin
+    server 315114-web-01 54.90.49.90:80 check
+    server 315114-web-02 54.165.247.60:80 check" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart

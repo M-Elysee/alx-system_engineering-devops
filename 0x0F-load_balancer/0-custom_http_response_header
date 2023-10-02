@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# a script that install and configure nginx
+sudo apt-get update -qq
+sudo apt-get -y install nginx -qq
+sudo chown $USER:$USER /var/www/html/index.html
+sudo touch index.html /var/www/html/
+echo 'Hello World!' > /var/www/html/index.html
+sudo touch 404.html /var/www/html/
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo chown  $USER:$USER /etc/nginx/sites-enabled/
+
+# redireting to other sites
+sed -i '/server_name _/a location /redirect_me { rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlw\u4? permanent; }' /etc/nginx/sites-enabled/default
+# setting up a customized 404 error display
+sed -i '/server_name _/a error_page 404 /404.html; location = /404.html {root /var/www/html/; internal; }' /etc/nginx/sites-enabled/default
+# setting it up to display in headers the hostname
+sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+sudo service nginx restart
