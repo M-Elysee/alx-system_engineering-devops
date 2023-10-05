@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# a bash script that fix intallation of nginx in an ubuntu container from listening on
-# port 80, and making it as small as possible
+# a bash script that fix intallation of nginx in an ubuntu container from listening on port 80, and making it as small as possible
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx start
 kill "$(pgrep 'nginx' | head -1)"
