@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# a bash script that fix ubuntu container's installation of nginx
+# form listening on port 80
+
+sed -i 's/listen 8080/listen 80/g' /etc/nginx/sites-enabled/default
+sed -i 's/listen \[::\]:8080/listen \[::\]:80/g' /etc/nginx/sites-enabled/default
+pgrep nginx -o > /run/nginx.pid
+nginx -s reload
+echo '' > /run/nginx.pid
