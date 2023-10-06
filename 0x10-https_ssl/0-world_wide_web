@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# a bash script that gives information on subdomains or domains in general
+
+display()
+{
+    res=$(dig "$1.$2" | grep -A1 'ANSWER SECTION:' | tr '\n' '\t')
+    r_type=$(echo "$res" | awk '{print $7}')
+    r_value=$(echo "$res" | awk '{print $8}')
+    echo "The subdomain $1 is a $r_type record and points to $r_value"
+}
+if [ -z $2 ]
+then
+    display "www" $1
+    display "lb-01" $1
+    display "web-01" $1
+    display "web-02" $1
+elif [ $2 ]
+then
+    display "$2" "$1"
+fi
