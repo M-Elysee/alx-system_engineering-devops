@@ -15,5 +15,5 @@ if __name__ == '__main__':
     with open("{}.json".format(sys.argv[1]), "w") as j_file:
         json.dump({sys.argv[1]: [{"task": todo['title'],
                                   "completed": todo['completed'],
-                                  "username": employee['name']}
+                                  "username": employee['username']}
                                  for todo in todos]}, j_file)

@@ -12,7 +12,7 @@ if __name__ == '__main__':
     todos = get('https://jsonplaceholder.typicode.com/todos',
                 params={"userId": sys.argv[1]}).json()
     done = [todo["title"] for todo in todos if todo["completed"]]
-    print("Employee {} is done with tasks({}/{})"
+    print("Employee {} is done with tasks({}/{}):"
           .format(employee['name'], len(done), len(todos)))
     for title in done:
         print("\t {}".format(title))
