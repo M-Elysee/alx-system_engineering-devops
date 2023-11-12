@@ -29,4 +29,4 @@ how the incident was resolved
 Root cause and resolution must contain:
 
 
-<a href=https://1drv.ms/w/s!AgqYqrOtSgh3gaQUdgd_n2RRarW-VA?e=31tyVW>Postmortem</a>
+<https://1drv.ms/w/s!AgqYqrOtSgh3gaQUdgd_n2RRarW-VA?e=31tyVW>
